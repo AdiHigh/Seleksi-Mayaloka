@@ -43,30 +43,30 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 15px 20px; /* Responsive padding */
 }
 
 .nav .logo img {
-    height: 35px;
+    height: clamp(25px, 5vw, 35px); /* Responsive height */
     width: auto;
 }
 
 .nav ul {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: clamp(10px, 4vw, 20px); /* Responsive gap */
 }
 
 .nav ul li a {
     color: #456882;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 5px;
     transition: all 0.3s ease;
-    padding: 8px 12px;
+    padding: clamp(6px, 2vw, 8px) clamp(8px, 3vw, 12px); /* Responsive padding */
     border-radius: 8px;
 }
 
@@ -75,6 +75,58 @@ body {
     background: linear-gradient(135deg, #1d4c7b 0%, #020c16 100%);
     transform: translateY(-2px);
 }
+
+/* Responsive adjustments for navbar */
+@media (max-width: 768px) {
+    .nav {
+        width: calc(100% - 1px); /* Reduce margins on small screens */
+        margin: 5px;
+        border-radius: 15px; /* Slightly smaller radius */
+    }
+
+    .nav .container {
+        padding: 10px 15px; /* Reduce padding */
+    }
+
+    .nav .logo img {
+        height: 5px; /* Smaller logo */
+    }
+
+    .nav ul {
+        gap: 10px; /* Smaller gap */
+    }
+
+    .nav ul li a {
+        font-size: 0.9rem; /* Smaller font */
+        padding: 6px 8px; /* Smaller padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        width: calc(100% - 5px); /* Even tighter on very small screens */
+        margin: 2px;
+        border-radius: 10px;
+    }
+
+    .nav .container {
+        padding: 8px 10px;
+    }
+
+    .nav .logo img {
+        height: 0px;
+    }
+
+    .nav ul {
+        gap: 5px;
+    }
+
+    .nav ul li a {
+        font-size: 0.8rem;
+        padding: 4px 6px;
+    }
+}
+
 
 /* Hero Section */
 .hero {
